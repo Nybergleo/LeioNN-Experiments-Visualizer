@@ -1,0 +1,254 @@
+{
+  "allowed_construction_methods": [
+    "Paper fast",
+    "Paper fast + shortcuts",
+    "Paper fast + Direct shortcuts",
+    "Paper fast + Reversed shortcuts 1",
+    "Paper fast + While-direct shortcuts"
+  ],
+  "allowed_search_methods": [
+    "greedySearch",
+    "Full centroid",
+    "Partial centroid - 50% (runtime top_k/entry_degree)"
+  ],
+  "files": {
+    "aggregates.json": "Generated visualizer contract file.",
+    "catalog.json": "Generated visualizer contract file.",
+    "datasets.json": "Generated visualizer contract file.",
+    "graphs.json": "Generated visualizer contract file.",
+    "measurements.json": "Generated visualizer contract file.",
+    "schema.json": "Generated visualizer contract file.",
+    "search_runs.json": "Generated visualizer contract file."
+  },
+  "hierarchy": "Dataset -> Graph / construction -> Search run -> Measurements",
+  "metric_definitions": {
+    "avg_dist_cmps": {
+      "availability": "When reported by the native search tool.",
+      "definition": "Average distance computations per query; for this data it is the one query's count.",
+      "display_label": "Distance computations",
+      "optimization_direction": "min",
+      "unit": "computations per query"
+    },
+    "build_time_s": {
+      "availability": "When the construction timing is available.",
+      "definition": "Active construction time for the graph searched by this row.",
+      "display_label": "Build time",
+      "optimization_direction": "min",
+      "unit": "seconds"
+    },
+    "candidates_generated": {
+      "availability": "Only when the native search binary records it explicitly.",
+      "definition": "Candidate count emitted by the native search binary.",
+      "display_label": "Candidates generated",
+      "optimization_direction": "min",
+      "unit": "candidates per query"
+    },
+    "epsilon_recall_0_01": {
+      "availability": "Only when per-query returned and exact distances are available.",
+      "definition": "Fraction of queries whose nearest returned distance is within 1.01 times the exact nearest-neighbor distance.",
+      "display_label": "Epsilon 0.01 recall",
+      "optimization_direction": "max",
+      "unit": "fraction"
+    },
+    "epsilon_recall_0_1": {
+      "availability": "Only when per-query returned and exact distances are available.",
+      "definition": "Fraction of queries whose nearest returned distance is within 1.1 times the exact nearest-neighbor distance.",
+      "display_label": "Epsilon 0.1 recall",
+      "optimization_direction": "max",
+      "unit": "fraction"
+    },
+    "index_size_bytes": {
+      "availability": "Always for a complete persisted index.",
+      "definition": "Total on-disk bytes of all persisted files belonging to the searched index prefix.",
+      "display_label": "Index size",
+      "optimization_direction": "min",
+      "unit": "bytes"
+    },
+    "max_extra_expanded_after_returned_top_10_expanded": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum per-query number of additional expansions after all returned top-10 nodes had already been expanded, using the returned nodes' expanded orders.",
+      "display_label": "Max extra expanded after top-10 expanded",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_extra_seen_after_returned_top_10_seen": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum per-query number of additional seen nodes after all returned top-10 nodes had already been first seen, using the returned nodes' first-seen orders.",
+      "display_label": "Max extra seen after top-10 seen",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_preceding_expanded_count_at_1": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum, over measured queries, of how many nodes were expanded before the returned rank-1 result was expanded. Null per query if the returned node was not expanded before termination.",
+      "display_label": "Max preceding expanded count at 1",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_preceding_expanded_count_top_10": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum, over measured queries and returned top-10 results, of how many nodes were expanded before that returned result was expanded. Null per query if the returned node was not expanded before termination.",
+      "display_label": "Max preceding expanded count top 10",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_preceding_visited_count_at_1": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum, over measured queries, of how many nodes were first seen before the returned rank-1 result. First-seen order is recorded by the native search trace.",
+      "display_label": "Max preceding visited count at 1",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_preceding_visited_count_top_10": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum, over measured queries and returned top-10 results, of how many nodes were first seen before that returned result.",
+      "display_label": "Max preceding visited count top 10",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_total_expanded_count": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum per-query number of nodes popped/expanded by the search. For centroid search, repeated branch-local expansions are counted as work.",
+      "display_label": "Max total expanded nodes",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "max_total_seen_count": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Maximum per-query number of nodes first seen/inserted into the candidate pool by the search. For centroid search, repeated branch-local discoveries are counted as work.",
+      "display_label": "Max total seen nodes",
+      "optimization_direction": "min",
+      "unit": "nodes"
+    },
+    "mean_extra_expanded_after_returned_top_10_expanded": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Mean number of additional expansions after all returned top-10 nodes had already been expanded, using the returned nodes' expanded orders.",
+      "display_label": "Mean extra expanded after top-10 expanded",
+      "optimization_direction": "min",
+      "unit": "nodes per query"
+    },
+    "mean_extra_seen_after_returned_top_10_seen": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Mean number of additional seen nodes after all returned top-10 nodes had already been first seen, using the returned nodes' first-seen orders.",
+      "display_label": "Mean extra seen after top-10 seen",
+      "optimization_direction": "min",
+      "unit": "nodes per query"
+    },
+    "mean_latency_us": {
+      "availability": "Always for a completed search.",
+      "definition": "Mean warm-up-free search latency; for this single-query data it is that one query's latency.",
+      "display_label": "Query latency",
+      "optimization_direction": "min",
+      "unit": "microseconds"
+    },
+    "mean_total_expanded_count": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Mean number of nodes popped/expanded by the search. For centroid search, repeated branch-local expansions are counted as work.",
+      "display_label": "Mean total expanded nodes",
+      "optimization_direction": "min",
+      "unit": "nodes per query"
+    },
+    "mean_total_seen_count": {
+      "availability": "Only for searches rerun with query trace metrics enabled.",
+      "definition": "Mean number of nodes first seen/inserted into the candidate pool by the search. For centroid search, repeated branch-local discoveries are counted as work.",
+      "display_label": "Mean total seen nodes",
+      "optimization_direction": "min",
+      "unit": "nodes per query"
+    },
+    "p50_latency_us": {
+      "availability": "Only when latency_sample_count >= 100.",
+      "definition": "50th percentile of warm-up-free individual query timings.",
+      "display_label": "P50 latency",
+      "optimization_direction": "min",
+      "unit": "microseconds"
+    },
+    "p95_latency_us": {
+      "availability": "Only when latency_sample_count >= 1000.",
+      "definition": "95th percentile of warm-up-free individual query timings.",
+      "display_label": "P95 latency",
+      "optimization_direction": "min",
+      "unit": "microseconds"
+    },
+    "p999_latency_us": {
+      "availability": "Only when latency_sample_count >= 10000.",
+      "definition": "99.9th percentile of warm-up-free individual query timings.",
+      "display_label": "P99.9 latency",
+      "optimization_direction": "min",
+      "unit": "microseconds"
+    },
+    "p99_latency_us": {
+      "availability": "Only when latency_sample_count >= 1000.",
+      "definition": "99th percentile of warm-up-free individual query timings.",
+      "display_label": "P99 latency",
+      "optimization_direction": "min",
+      "unit": "microseconds"
+    },
+    "qps": {
+      "availability": "Workload or repeated-single-query measurements only; omitted for single_query.",
+      "definition": "Measured-query count divided by measured-search wall time.",
+      "display_label": "Throughput",
+      "optimization_direction": "max",
+      "unit": "queries per second"
+    },
+    "recall": {
+      "availability": "Always for a completed search.",
+      "definition": "Percentage of the top-K ground-truth neighbors returned.",
+      "display_label": "Recall",
+      "optimization_direction": "max",
+      "unit": "percent"
+    },
+    "recall_at": {
+      "availability": "Always with recall.",
+      "definition": "K used to calculate recall.",
+      "display_label": "Recall K",
+      "optimization_direction": "max",
+      "unit": "neighbors"
+    },
+    "recall_at_10": {
+      "availability": "K = 10.",
+      "definition": "Recall calculated against the ten nearest ground-truth neighbors.",
+      "display_label": "Recall@10",
+      "optimization_direction": "max",
+      "unit": "percent"
+    },
+    "recall_at_5": {
+      "availability": "K = 5.",
+      "definition": "Recall calculated against the five nearest ground-truth neighbors.",
+      "display_label": "Recall@5",
+      "optimization_direction": "max",
+      "unit": "percent"
+    },
+    "relative_error": {
+      "availability": "Only when per-query returned and exact distances are available.",
+      "definition": "Mean nearest-returned distance divided by the exact nearest-neighbor distance, calculated per query.",
+      "display_label": "Relative error",
+      "optimization_direction": "min",
+      "unit": "ratio"
+    }
+  },
+  "query_measurement_definitions": {
+    "batch_mode": "Whether the native search executed a query batch.",
+    "latency_sample_count": "Warm-up-free individual timings available for latency summaries.",
+    "measured_query_count": "Number of searches represented by the measurement.",
+    "percentile_method": "Named method used for emitted percentiles, otherwise null.",
+    "query_mode": "workload, repeated_single_query, or single_query.",
+    "search_wall_seconds": "Measured-search elapsed time only.",
+    "unique_query_count": "Number of distinct query vectors represented.",
+    "warmup_query_count": "Warm-up searches excluded from reported metrics."
+  },
+  "question": "Question: How do the same Paper-fast graph and its shortcut augmentation trade\nrecall for latency across greedy, full-centroid, and 50%-partial-centroid search?",
+  "schema_version": 3,
+  "scope": {
+    "datasets": [
+      "diskann-hard",
+      "sift1m",
+      "gist1m"
+    ],
+    "gist1m": "fresh Paper-fast construction plus serial halving-shortcut graph derived from that exact base",
+    "k_count_sweeps": "excluded",
+    "sift1m_direct_shortcuts": "threshold-direct shortcut graph derived from the same exported SIFT1M Paper-fast graph",
+    "sift1m_reversed_shortcuts_1": "reverse-order shortcut graph derived from the same exported SIFT1M Paper-fast graph, starting from expanded-order node 1",
+    "sift1m_shortcuts": "derived from the exported SIFT1M Paper-fast graph",
+    "sift1m_while_direct_shortcuts": "while-direct shortcut graph derived from the same exported SIFT1M Paper-fast graph; repeated passes recheck only targets that remained longer than the threshold"
+  }
+}

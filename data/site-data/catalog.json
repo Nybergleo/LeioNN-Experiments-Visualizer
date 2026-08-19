@@ -1,0 +1,126 @@
+{
+  "K_values": [
+    0,
+    5,
+    10
+  ],
+  "L_values": [
+    5,
+    10,
+    20,
+    30,
+    40,
+    50,
+    75,
+    100,
+    150,
+    200,
+    1000,
+    10000,
+    50000,
+    100000,
+    120000,
+    150000,
+    200000
+  ],
+  "build_parameter_values": {
+    "Lbuild": [
+      125
+    ],
+    "R": [
+      70
+    ],
+    "alpha": [
+      2.0
+    ],
+    "dimension": [
+      8
+    ],
+    "threads": [
+      8
+    ]
+  },
+  "construction_methods": [
+    "Paper fast",
+    "Paper fast + Direct shortcuts",
+    "Paper fast + Reversed shortcuts 1",
+    "Paper fast + While-direct shortcuts",
+    "Paper fast + shortcuts"
+  ],
+  "datasets": [
+    {
+      "dataset_id": "diskann-hard",
+      "dataset_label": "DiskANN Hard 1M Instance",
+      "dimension": 8,
+      "size": 1000005
+    },
+    {
+      "dataset_id": "sift1m",
+      "dataset_label": "SIFT1M",
+      "dimension": 128,
+      "size": 1000000
+    },
+    {
+      "dataset_id": "gist1m",
+      "dataset_label": "GIST1M",
+      "dimension": 960,
+      "size": 1000000
+    }
+  ],
+  "metrics": [
+    "avg_dist_cmps",
+    "avg_greedy_path_length",
+    "build_time_s",
+    "epsilon_recall_0_01",
+    "epsilon_recall_0_1",
+    "index_size_bytes",
+    "max_extra_expanded_after_returned_top_10_expanded",
+    "max_extra_seen_after_returned_top_10_seen",
+    "max_greedy_path_length",
+    "max_preceding_expanded_count_at_1",
+    "max_preceding_expanded_count_top_10",
+    "max_preceding_visited_count_at_1",
+    "max_preceding_visited_count_top_10",
+    "max_total_expanded_count",
+    "max_total_seen_count",
+    "mean_extra_expanded_after_returned_top_10_expanded",
+    "mean_extra_seen_after_returned_top_10_seen",
+    "mean_latency_us",
+    "mean_total_expanded_count",
+    "mean_total_seen_count",
+    "num_points",
+    "p50_latency_us",
+    "p95_latency_us",
+    "p999_latency_us",
+    "p99_latency_us",
+    "path_length_frequency",
+    "qps",
+    "reached_targets",
+    "recall",
+    "recall_at",
+    "recall_at_10",
+    "recall_at_5",
+    "relative_error"
+  ],
+  "partial_centroid_alternatives": [
+    "50% (35/70)",
+    "50% (6/12)"
+  ],
+  "search_method_labels": [
+    "Full centroid",
+    "Full centroid - max exp cap 42",
+    "Full centroid - max exp cap 7",
+    "Internal point greedy path",
+    "Partial centroid - 50% (35/70)",
+    "Partial centroid - 50% (35/70), max exp cap 42",
+    "Partial centroid - 50% (35/70), max exp cap 7",
+    "Partial centroid - 50% (6/12)",
+    "greedySearch"
+  ],
+  "search_methods": [
+    "Full centroid",
+    "Internal point greedy path",
+    "Partial centroid",
+    "greedySearch"
+  ]
+}

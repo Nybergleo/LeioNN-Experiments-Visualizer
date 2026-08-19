@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Common ANN benchmark-style plots for DiskANN experiment results.">
+    <title>Diagrams · DiskANN Experiment Explorer</title>
+    <link rel="stylesheet" href="styles.css?v=20260803-reversed-shortcuts-0">
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">Home</a>
+      <div>
+        <a href="overview.html">Overview</a>
+        <a href="tables/">Tables</a>
+        <a class="is-current" href="diagrams.html" aria-current="page">Diagrams</a>
+        <a href="geometry.html">Graph</a>
+      </div>
+    </nav>
+    <main class="diagram-page">
+      <header class="diagram-header">
+        <div>
+          <p class="eyebrow">Results visualized</p>
+          <h1>Diagrams</h1>
+          <p class="lede">See the outcomes through common ANN benchmark-style plots, inspired by ANN-Benchmarks: recall versus throughput, build cost, distance computations, and latency percentiles.</p>
+        </div>
+        <p id="diagram-status" class="status">Loading site data…</p>
+      </header>
+
+      <section class="diagram-toolbar" aria-label="Diagram options">
+        <label for="diagram-dataset">Dataset</label>
+        <select id="diagram-dataset"></select>
+        <div class="diagram-mode-toggle" aria-label="Diagram type">
+          <button type="button" data-diagram-mode="ann">ANN-Benchmark</button>
+          <button type="button" data-diagram-mode="ours">Our experiments</button>
+        </div>
+        <label class="diagram-checkbox">
+          <input id="diagram-hide-experimental" type="checkbox" checked>
+          <span>Hide experimental search methods</span>
+        </label>
+        <p id="diagram-count">No rows selected</p>
+      </section>
+
+      <section class="diagram-results" aria-live="polite">
+        <div id="diagram-plots"></div>
+      </section>
+    </main>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="diagrams.js?v=20260803-reversed-shortcuts-0"></script>
+  </body>
+</html>

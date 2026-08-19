@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Greedy-path shortcut-construction evidence for DiskANN experiments.">
+    <title>Graph · DiskANN Experiment Explorer</title>
+    <link rel="stylesheet" href="styles.css?v=20260803-path-frequency">
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a class="brand" href="index.html">Home</a>
+      <div>
+        <a href="overview.html">Overview</a>
+        <a href="tables/">Tables</a>
+        <a href="diagrams.html">Diagrams</a>
+        <a class="is-current" href="geometry.html" aria-current="page">Graph</a>
+      </div>
+    </nav>
+    <main class="geometry-page">
+      <header class="diagram-header">
+        <div>
+          <p class="eyebrow">Shortcut construction</p>
+          <h1>Graph</h1>
+          <p class="lede">Compare Paper fast with shortcut variants by exact greedy search path length: average path, maximum path, reached targets, and the shortcut edges added.</p>
+        </div>
+        <p id="geometry-status" class="status">Loading geometry data...</p>
+      </header>
+
+      <section id="geometry-summary" class="geometry-summary" aria-live="polite"></section>
+
+      <section class="geometry-grid" aria-label="Graph diagrams">
+        <article class="plot-card geometry-card">
+          <h2>SIFT Internal Path Length Frequency</h2>
+          <p class="plot-description">Frequency distribution of exact greedy path lengths over all internal indexed points.</p>
+          <div id="sift-path-length-frequency" class="plotly-plot"></div>
+        </article>
+        <article class="plot-card geometry-card">
+          <h2>GIST Internal Path Length Frequency</h2>
+          <p class="plot-description">Frequency distribution of exact greedy path lengths over all internal indexed points.</p>
+          <div id="gist-path-length-frequency" class="plotly-plot"></div>
+        </article>
+        <article class="plot-card geometry-card">
+          <h2>SIFT Node Out-Degree Frequency</h2>
+          <p class="plot-description">Frequency distribution of outgoing graph degree over all indexed nodes.</p>
+          <div id="sift-degree-frequency" class="plotly-plot"></div>
+        </article>
+        <article class="plot-card geometry-card">
+          <h2>GIST Node Out-Degree Frequency</h2>
+          <p class="plot-description">Frequency distribution of outgoing graph degree over all indexed nodes.</p>
+          <div id="gist-degree-frequency" class="plotly-plot"></div>
+        </article>
+        <article class="plot-card geometry-card">
+          <h2>Greedy Search Path Length</h2>
+          <p class="plot-description">Exact measured average and maximum greedy path length on the base graph and on the shortcut graph.</p>
+          <div id="path-length-comparison" class="plotly-plot"></div>
+        </article>
+        <article class="plot-card geometry-card">
+          <h2>Shortcut Edge Direction</h2>
+          <p class="plot-description">Shortcut-only edges are grouped by whether they move inward, outward, or laterally by centroid distance.</p>
+          <div id="shortcut-direction" class="plotly-plot"></div>
+        </article>
+      </section>
+    </main>
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script src="geometry.js?v=20260803-path-frequency"></script>
+  </body>
+</html>

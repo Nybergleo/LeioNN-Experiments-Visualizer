@@ -1,0 +1,20 @@
+[
+  {
+    "dataset_id": "diskann-hard",
+    "dataset_label": "DiskANN Hard 1M Instance",
+    "dimension": 8,
+    "size": 1000005
+  },
+  {
+    "dataset_id": "sift1m",
+    "dataset_label": "SIFT1M",
+    "dimension": 128,
+    "size": 1000000
+  },
+  {
+    "dataset_id": "gist1m",
+    "dataset_label": "GIST1M",
+    "dimension": 960,
+    "size": 1000000
+  }
+]
